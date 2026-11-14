@@ -1,0 +1,77 @@
+{
+  "name": "phishguard-awareness-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Safe, local phishing-awareness simulator for authorized training",
+  "main": "electron-main.js",
+  "bin": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "app:start": "electron .",
+    "app:build": "electron-packager . PhishGuard --platform=win32 --arch=x64 --out=dist-app --overwrite --prune=true",
+    "app:installer": "electron-builder --win",
+    "test": "node --test test/app.test.js",
+    "build:cli": "npx @yao-pkg/pkg . -t node22-win-x64 -o phishguard-cli.exe --compress GZip"
+  },
+  "build": {
+    "appId": "com.phishguard.app",
+    "productName": "PhishGuard",
+    "asar": false,
+    "directories": {
+      "output": "dist-installer"
+    },
+    "files": [
+      "electron-main.js",
+      "server.js",
+      "src/**/*",
+      "views/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PhishGuard"
+    }
+  },
+  "pkg": {
+    "scripts": [
+      "src/**/*.js"
+    ],
+    "assets": [
+      "views/**/*",
+      "public/**/*",
+      "node_modules/ejs/**/*"
+    ],
+    "targets": [
+      "node22-win-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "electron-packager": "^17.1.2",
+    "supertest": "^7.1.1"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}

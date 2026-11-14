@@ -1,0 +1,51 @@
+<!-- This is the container where the intelligence report will appear after analysis -->
+<div id="intelligence-results" class="intelligence-container">
+    <!-- Initially, this will be empty or show a placeholder -->
+    <p class="placeholder-text">Run an analysis to see creator intelligence...</p>
+</div>
+
+<!-- Add some CSS to make the report look professional and clean -->
+<style>
+    .intelligence-container { 
+        margin-top: 30px; 
+        min-height: 100px; 
+    }
+    .intel-report-card { 
+        background: #ffffff; 
+        border: 1px solid #e0e0e0; 
+        padding: 20px; 
+        border-radius: 12px; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    .intel-title { 
+        color: #d35400; /* A nice warning orange */
+        margin-top: 0; 
+        font-size: 1.4rem; 
+        border-bottom: 2px solid #f39c12;
+        padding-bottom: 10px;
+    }
+    .intel-item { 
+        margin-bottom: 12px; 
+        display: flex; 
+        justify-content: space-between; 
+        font-size: 1rem;
+    }
+    .intel-label { 
+        font-weight: 600; 
+        color: #7f8c8d; 
+    }
+    .intel-value { 
+        color: #2c3e50; 
+        font-weight: 500;
+    }
+    .intel-footer { 
+        margin-top: 15px;
+        font-size: 0.8rem;
+        color: #95a5a6;
+        text-align: right;
+    }
+    .error-msg { color: #e74c3c; font-weight: bold; }
+    .loading { color: #3498db; font-style: italic; }
+</style>

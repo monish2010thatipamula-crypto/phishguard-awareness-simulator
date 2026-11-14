@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title || 'PhishGuard' %></title>
+  
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0a0e17">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PhishGuard">
+  <link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
+  <link rel="apple-touch-icon" href="/icons/icon.svg">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="scanlines"></div>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="brand">
+    <span class="brand-mark">P</span>
+    <span>PHISHGUARD</span>
+  </div>
+  <p class="brand-subtitle">CYBER AWARENESS // PUBLIC LAB</p>
+  <nav>
+    <a href="/dashboard"><span>◆</span> Dashboard</a>
+    <a href="/campaigns"><span>◇</span> Simulations</a>
+    <a href="/campaigns/new"><span>＋</span> New simulation</a>
+    <a href="/analyze"><span>⌁</span> Link analyzer</a>
+    <button id="pwa-install-btn" class="pwa-nav-btn" style="display: none;"><span>📥</span> Install App</button>
+  </nav>
+  <div class="sidebar-note">
+    <strong>● SAFE MODE ONLINE</strong><br>
+    Local training only. No credentials, cookies, or customer data are collected.
+  </div>
+</aside>
+<main class="main-content">
+<div class="hud-line">
+  <span>PHISHGUARD / AWARENESS LAB</span>
+  <span>NO IDENTITY DATA // NO TRACKING</span>
+</div>
+<% if (error) { %><div class="flash error"><%= error %></div><% } %>
